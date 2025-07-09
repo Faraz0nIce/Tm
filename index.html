@@ -1,39 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style.css">
-    <meta charset="UTF-8">
-    <title>Tariq Mahomed</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import { createIcons, icons } from 'https://cdn.jsdelivr.net/npm/lucide@latest/+esm';
+    window.addEventListener('DOMContentLoaded', () => createIcons({ icons }));
+  </script>
+  <style>
+    body {
+      background-color: #1c1c1e;
+    }
+    .glass {
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </head>
-<body>
-    <div class="Name">
-
-        <img class="NameH1" src="Name.png">
-        <p class="NameP">Happy Birthday.</p>
+<body class="text-white font-sans">
+  <!-- MAIN PAGE -->
+  <div id="mainPage" class="p-4 pb-28 block space-y-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold flex items-center gap-2">
+        <i data-lucide="droplet" class="w-6 h-6"></i> JHB WATER
+      </div>
+      <button class="bg-orange-400 text-black font-medium rounded-full px-4 py-1 shadow-md">REWARDS</button>
+      <i data-lucide="settings" class="w-6 h-6"></i>
     </div>
 
-    <div class="ImgDiv">
-        <img class="TariqM" src="TariqM.png">
+    <!-- Red & Blue Side-by-Side Cards -->
+    <div class="flex gap-4">
+      <div class="flex-1 p-4 rounded-xl glass bg-red-600 cursor-default">
+        <div class="font-bold">Rand Water</div>
+        <div class="text-lg font-bold">WATER SHEDDING</div>
+        <div class="text-sm opacity-80">Water Shedding starts at 4pm</div>
+      </div>
+
+      <div class="flex-1 p-4 rounded-xl glass bg-blue-600 cursor-pointer" onclick="showPage('waterPage')">
+        <div class="font-bold">My Water</div>
+        <div class="text-sm mt-1">Usage: 150L</div>
+        <div class="text-sm">Savings: $</div>
+        <div class="text-sm">Environment: 🌍</div>
+      </div>
     </div>
-    <div class="Info">
-        <p class="Dear">Dear Tariq...</p>
 
-        <p class="Paragraph"><strong class="Test">Happy 12th Birthday</strong> my dearest cousin! <br><br>
-        It was just yesterday that I remember our first cardboard boat sinking or the time we built that massive box fort and 
-        all the other crazy adventures and ideas we brought to life every weekend. <br><br>
-
-        Today I want to wish you a Happy Birthday and hope Allah grants you all your disires in life and accepts all your duas. I make dua to Allah
-        to keep our bond as strong as it is and for us to continue doing the crazy stuff we do weather it be running from autumn or pulling what 
-        we call mission impossible - If you know, you know. <br><br>
-
-        But I hope you have an <strong>AWESOME DAY</strong>... <strong class="Test">Love you lots</strong>
-        </p>
-
-        <br><br><br>
-        
-
+    <!-- My Areas -->
+    <div>
+      <div class="text-lg font-bold mb-2">My Areas</div>
+      <div class="space-y-2">
+        <div class="p-4 rounded-lg glass">📍 Area 1</div>
+        <div class="p-4 rounded-lg glass">📍 Area 2</div>
+      </div>
+      <button class="bg-gray-600 mt-3 px-4 py-2 rounded-lg text-sm font-medium shadow hover:bg-gray-500 transition">+ Add Area</button>
     </div>
+  </div>
+
+  <!-- MY WATER PAGE -->
+  <div id="waterPage" class="p-4 pb-28 hidden space-y-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold flex items-center gap-2">
+        <i data-lucide="user" class="w-6 h-6"></i> My Water
+      </div>
+      <button class="bg-orange-400 text-black font-medium rounded-full px-4 py-1 shadow-md">REWARDS</button>
+      <i data-lucide="settings" class="w-6 h-6"></i>
+    </div>
+
+    <!-- Usage Table -->
+    <div class="glass p-4 rounded-lg bg-blue-600">
+      <div class="font-bold mb-2">Water Usage</div>
+      <table class="w-full text-left text-sm">
+        <thead class="text-gray-200">
+          <tr><th>Month</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>Litres/Day</td></tr>
+          <tr><td>February</td><td>Litres/Day</td></tr>
+          <tr><td>March</td><td>Litres/Day</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Savings Table -->
+    <div class="glass p-4 rounded-lg bg-blue-600">
+      <div class="font-bold mb-2">Savings</div>
+      <table class="w-full text-left text-sm">
+        <thead class="text-gray-200">
+          <tr><th>Month</th><th>Saving</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td>Litres</td><td>R</td></tr>
+          <tr><td>February</td><td>Litres</td><td>R</td></tr>
+          <tr><td>March</td><td>Litres</td><td>R</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Report a Leak -->
+    <div class="glass p-4 rounded-lg bg-red-600">
+      <div class="font-bold">Rand Water</div>
+      <div class="text-lg font-bold">REPORT A LEAK</div>
+      <button class="bg-gradient-to-r from-orange-400 to-yellow-400 px-4 py-1 mt-2 rounded text-black font-semibold">CONTACT</button>
+    </div>
+  </div>
+
+  <!-- COMMUNITIES PAGE -->
+  <div id="communitiesPage" class="p-4 pb-28 hidden space-y-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold flex items-center gap-2">
+        <i data-lucide="message-circle" class="w-6 h-6"></i> Communities
+      </div>
+      <button class="bg-orange-400 text-black font-medium rounded-full px-4 py-1 shadow-md">REWARDS</button>
+      <i data-lucide="settings" class="w-6 h-6"></i>
+    </div>
+
+    <button class="bg-gradient-to-r from-blue-400 to-yellow-400 text-black px-4 py-2 rounded font-bold shadow mb-2">Find Community</button>
+
+    <div class="space-y-2">
+      <div class="p-4 rounded-lg glass bg-green-600">🟢 Community 1</div>
+      <div class="p-4 rounded-lg glass bg-green-600">🟢 Community 2</div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="fixed bottom-0 w-full flex justify-around items-center bg-[#1c1c1e] p-4 text-white border-t border-gray-700 z-50">
+    <button onclick="showPage('mainPage')"><i data-lucide="droplet" class="w-6 h-6"></i></button>
+    <button onclick="showPage('waterPage')"><i data-lucide="user" class="w-6 h-6"></i></button>
+    <button onclick="showPage('communitiesPage')"><i data-lucide="message-circle" class="w-6 h-6"></i></button>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function showPage(pageId) {
+      const pages = ['mainPage', 'waterPage', 'communitiesPage'];
+      pages.forEach(id => {
+        document.getElementById(id).style.display = id === pageId ? 'block' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
